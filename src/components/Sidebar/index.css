@@ -7,6 +7,26 @@
 	border-right: 1px solid #e4ebfa;
 	padding-top: 33px;
 	padding-left: 34px;
+	color: #828FA3;
+}
+
+.all-boards-title {
+	margin-bottom: 19px;
+}
+
+.sidebar-boards {
+	display: flex;
+	flex-direction: column;
+}
+
+.sidebar-board {
+	display: flex;
+	align-items: center;
+	height: 48px;
+}
+
+.board-icon {
+	margin-right: 16px;
 }
 
 .logo {

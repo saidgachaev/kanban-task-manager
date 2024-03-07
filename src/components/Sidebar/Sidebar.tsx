@@ -1,13 +1,40 @@
+import { useState } from 'react';
 import './index.css';
 import logo from '../../assets/logo-dark.svg';
+import boardIcon from '../../assets/icon-board.svg';
+
+interface Board {
+	id: number;
+	title: string;
+}
+
 const Sidebar = () => {
+	const [boardsList, setBoardsList] = useState<Board[]>([]);
+
+	const handleCreateNewBoard = () => {
+		const newBoard = {
+			id: Math.random(),
+			title: 'new board',
+		};
+		setBoardsList((prevBoardsList) => [...prevBoardsList, newBoard]);
+	};
+
 	return (
 		<div className='sidebar'>
 			<div>
-				<img className='logo' src={logo} alt='' />
-				<div className='boards'>
-					<span>ALL BOARDS ()</span>
+				<img className='logo' src={logo} alt='Kanban logo.' />
+				<div className='all-boards-title'>ALL BOARDS ({boardsList.length})</div>
+				<div className='sidebar-boards'>
+					{boardsList.map((board) => {
+						return (
+							<div key={board.id} className='sidebar-board'>
+								<img src={boardIcon} alt='Board Icon' className='board-icon' />
+								<span>{board.title}</span>
+							</div>
+						);
+					})}
 				</div>
+				<button onClick={handleCreateNewBoard}>Create New Board</button>
 			</div>
 
 			<div>
