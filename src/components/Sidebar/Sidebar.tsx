@@ -10,6 +10,7 @@ interface Board {
 
 const Sidebar = () => {
 	const [boardsList, setBoardsList] = useState<Board[]>([]);
+	const [selectedBoard, setSelectedBoard] = useState<number | null>(null);
 
 	const handleCreateNewBoard = () => {
 		const newBoard = {
@@ -17,6 +18,10 @@ const Sidebar = () => {
 			title: 'new board',
 		};
 		setBoardsList((prevBoardsList) => [...prevBoardsList, newBoard]);
+	};
+
+	const handleBoardClick = (id: number) => {
+		setSelectedBoard(id);
 	};
 
 	return (
@@ -27,7 +32,11 @@ const Sidebar = () => {
 				<div className='sidebar-boards'>
 					{boardsList.map((board) => {
 						return (
-							<div key={board.id} className='sidebar-board'>
+							<div
+								key={board.id}
+								className={`sidebar-board ${selectedBoard === board.id ? 'selected' : ''}`}
+								onClick={() => handleBoardClick(board.id)}
+							>
 								<img src={boardIcon} alt='Board Icon' className='board-icon' />
 								<span>{board.title}</span>
 							</div>

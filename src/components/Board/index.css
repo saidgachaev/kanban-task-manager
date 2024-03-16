@@ -6,3 +6,18 @@
     justify-content: center;
     align-items: center;
 }
+
+.title {
+    color: #828FA3;
+    margin-bottom: 33px;
+}
+
+.add-column-button {
+    height: 48px;
+    width: 174px;
+    background-color: #635FC7;
+    color: #ffff;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+}
