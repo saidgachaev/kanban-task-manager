@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './index.css';
-import logo from '../../assets/logo-dark.svg';
-import boardIcon from '../../assets/icon-board.svg';
+import logo from '../../../public/assets/logo-dark.svg';
+import boardIcon from '../../../public/assets/icon-board.svg';
 
 interface Board {
 	id: number;
