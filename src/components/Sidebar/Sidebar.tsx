@@ -42,8 +42,11 @@ const Sidebar = () => {
 							</div>
 						);
 					})}
+					<button className='create-new-board-button' onClick={handleCreateNewBoard}>
+					<img src={boardIcon} alt='Board Icon' className='board-icon' />
+						+ Create New Board</button>
 				</div>
-				<button onClick={handleCreateNewBoard}>Create New Board</button>
+				
 			</div>
 
 			<div>
