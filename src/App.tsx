@@ -8,7 +8,7 @@ function App() {
 		<div className='app'>
 			<Sidebar />
 			<div className='container'>
-				<Header />
+				<Header title='title haha'/>
 				<Board />
 			</div>
 		</div>

@@ -3,13 +3,9 @@ import logo from '../../../public/assets/logo-dark.svg';
 import boardIcon from '../../../public/assets/icon-board.svg';
 import './index.css';
 
-interface Board {
-	id: number;
-	title: string;
-}
 
 const Sidebar = () => {
-	const [boardsList, setBoardsList] = useState<Board[]>([]);
+	const [boardsList, setBoardsList] = useState<{ id: number; title: string }[]>([]);
 	const [selectedBoard, setSelectedBoard] = useState<number | null>(null);
 
 	const handleCreateNewBoard = () => {
