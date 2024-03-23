@@ -2,18 +2,22 @@ import { useState } from 'react';
 import logo from '../../../public/assets/logo-dark.svg';
 import boardIcon from '../../../public/assets/icon-board.svg';
 import './index.css';
+import { useMst } from '../../hooks/useMst';
 
 
 const Sidebar = () => {
-	const [boardsList, setBoardsList] = useState<{ id: number; title: string }[]>([]);
 	const [selectedBoard, setSelectedBoard] = useState<number | null>(null);
+
+	const {
+		boardsStore: { boards, addBoard}
+	} = useMst();
 
 	const handleCreateNewBoard = () => {
 		const newBoard = {
 			id: Math.random(),
 			title: 'new board',
 		};
-		setBoardsList((prevBoardsList) => [...prevBoardsList, newBoard]);
+		addBoard(newBoard)
 	};
 
 	const handleBoardClick = (id: number) => {
@@ -24,9 +28,9 @@ const Sidebar = () => {
 		<div className='sidebar'>
 			<div>
 				<img className='logo' src={logo} alt='Kanban logo.' />
-				<div className='all-boards-title'>ALL BOARDS ({boardsList.length})</div>
+				<div className='all-boards-title'>ALL BOARDS ({boards.length})</div>
 				<div className='sidebar-boards'>
-					{boardsList.map((board) => {
+					{boards.map((board) => {
 						return (
 							<div
 								key={board.id}
