@@ -1,4 +1,4 @@
-import { SnapshotOrInstance, getRoot, types } from 'mobx-state-tree';
+import { SnapshotOrInstance, types } from 'mobx-state-tree';
 
 export type BoardModelType = SnapshotOrInstance<typeof BoardModel>;
 

@@ -1,23 +1,18 @@
 import { useState } from 'react';
 import logo from '../../../public/assets/logo-dark.svg';
 import boardIcon from '../../../public/assets/icon-board.svg';
-import './index.css';
 import { useMst } from '../../hooks/useMst';
-
+import './index.css';
 
 const Sidebar = () => {
-	const [selectedBoard, setSelectedBoard] = useState<number | null>(null);
-
 	const {
-		boardsStore: { boards, addBoard}
+		boardsStore: { boards, addBoard },
 	} = useMst();
 
+	const [selectedBoard, setSelectedBoard] = useState<number | null>(null);
+
 	const handleCreateNewBoard = () => {
-		const newBoard = {
-			id: Math.random(),
-			title: 'new board',
-		};
-		addBoard(newBoard)
+		addBoard({ id: Math.random(), title: 'New board' });
 	};
 
 	const handleBoardClick = (id: number) => {
@@ -43,10 +38,9 @@ const Sidebar = () => {
 						);
 					})}
 					<button className='create-new-board-button' onClick={handleCreateNewBoard}>
-					<img src={boardIcon} alt='Board Icon' className='board-icon' />
-						+ Create New Board</button>
+						<img src={boardIcon} alt='Board Icon' className='board-icon' />+ Create New Board
+					</button>
 				</div>
-				
 			</div>
 
 			<div>
