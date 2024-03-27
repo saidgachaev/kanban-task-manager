@@ -2,9 +2,10 @@ import { useState } from 'react';
 import logo from '../../../public/assets/logo-dark.svg';
 import boardIcon from '../../../public/assets/icon-board.svg';
 import { useMst } from '../../hooks/useMst';
+import { observer } from 'mobx-react-lite';
 import './index.css';
 
-const Sidebar = () => {
+const Sidebar = observer(() => {
 	const {
 		boardsStore: { boards, addBoard },
 	} = useMst();
@@ -49,6 +50,6 @@ const Sidebar = () => {
 			</div>
 		</div>
 	);
-};
+});
 
 export default Sidebar;
