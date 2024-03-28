@@ -7,7 +7,7 @@ import './index.css';
 
 const Sidebar = observer(() => {
 	const {
-		boardsStore: { boards, addBoard },
+		boardsStore: { boards, addBoard, getSelectedBoard, selectBoard },
 	} = useMst();
 
 	const [selectedBoard, setSelectedBoard] = useState<number | null>(null);

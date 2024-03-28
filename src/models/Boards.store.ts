@@ -10,6 +10,19 @@ const BoardsStore = types
 			self.boards.push(board);
 		};
 
-		return { addBoard };
-	});
+		const selectBoard = (id: number) => {
+			self.boards.forEach(board => {
+				if(board.id == id) {
+					board.selected == true
+				}
+			})
+		}
+
+		return { addBoard, selectBoard };
+	}).views((self) => {
+		const getSelectedBoard = () => {
+            return self.boards.find(board => board.selected);
+        };
+        return { getSelectedBoard };
+	})
 export default BoardsStore;
