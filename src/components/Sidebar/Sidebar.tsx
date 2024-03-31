@@ -10,14 +10,14 @@ const Sidebar = observer(() => {
 		boardsStore: { boards, addBoard, getSelectedBoard, selectBoard },
 	} = useMst();
 
-	const [selectedBoard, setSelectedBoard] = useState<number | null>(null);
+	let selectedBoard = getSelectedBoard()
 
 	const handleCreateNewBoard = () => {
-		addBoard({ id: Math.random(), title: 'New board' });
+		addBoard({ id: Math.random(), title: 'New board' , selected: false});
 	};
 
 	const handleBoardClick = (id: number) => {
-		setSelectedBoard(id);
+		selectBoard(id)
 	};
 
 	return (

@@ -11,18 +11,23 @@ const BoardsStore = types
 		};
 
 		const selectBoard = (id: number) => {
-			self.boards.forEach(board => {
-				if(board.id == id) {
-					board.selected == true
+			self.boards.forEach((board) => {
+				if (board.id === id) {
+					board.selected = true;
+				} else {
+					board.selected = false
 				}
-			})
-		}
+			});
+		};
 
 		return { addBoard, selectBoard };
-	}).views((self) => {
-		const getSelectedBoard = () => {
-            return self.boards.find(board => board.selected);
-        };
-        return { getSelectedBoard };
 	})
+	.views((self) => {
+		const getSelectedBoard = () => {
+			const selectedBoard = self.boards.find((board) => board.selected === true);
+			return selectedBoard ? selectedBoard.id : null;
+		};
+
+		return { getSelectedBoard };
+	});
 export default BoardsStore;
