@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import logo from '../../../public/assets/logo-dark.svg';
 import boardIcon from '../../../public/assets/icon-board.svg';
 import { useMst } from '../../hooks/useMst';
@@ -30,7 +29,7 @@ const Sidebar = observer(() => {
 						return (
 							<div
 								key={board.id}
-								className={`sidebar-board ${selectedBoard === board.id ? 'selected' : ''}`}
+								className={`sidebar-board ${selectedBoard?.id === board.id ? 'selected' : ''}`}
 								onClick={() => handleBoardClick(board.id)}
 							>
 								<img src={boardIcon} alt='Board Icon' className='board-icon' />

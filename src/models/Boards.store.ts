@@ -25,7 +25,7 @@ const BoardsStore = types
 	.views((self) => {
 		const getSelectedBoard = () => {
 			const selectedBoard = self.boards.find((board) => board.selected === true);
-			return selectedBoard ? selectedBoard.id : null;
+			return selectedBoard ? selectedBoard : null;
 		};
 
 		return { getSelectedBoard };
