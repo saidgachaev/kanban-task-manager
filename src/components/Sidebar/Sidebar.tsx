@@ -1,5 +1,5 @@
-import logo from '../../../public/assets/logo-dark.svg';
-import boardIcon from '../../../public/assets/icon-board.svg';
+import logo from '/assets/logo-dark.svg';
+import boardIcon from '/assets/icon-board.svg';
 import { useMst } from '../../hooks/useMst';
 import { observer } from 'mobx-react-lite';
 import './index.css';
