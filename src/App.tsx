@@ -3,10 +3,12 @@ import Header from './components/Header/Header';
 import Board from './components/Board/Board';
 import { observer } from 'mobx-react-lite';
 import { useMst } from './hooks/useMst';
+import { useState } from 'react';
 import './App.css';
 
 
 const App = observer( () => {
+	const [isSideBarOpen, setIsSideBarOpen] = useState(true);
 	const {
 		boardsStore: { getSelectedBoard},
 	} = useMst();
@@ -14,7 +16,8 @@ const App = observer( () => {
 	const selectedBoard = getSelectedBoard()
 	return (
 		<div className='app'>
-			<Sidebar />
+			<Sidebar isSideBarOpen={isSideBarOpen}
+          setIsSideBarOpen={setIsSideBarOpen}/>
 			<div className='container'>
 				<Header title={selectedBoard?.title}/>
 				<Board />
